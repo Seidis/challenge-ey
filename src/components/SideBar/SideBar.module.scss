@@ -1,0 +1,84 @@
+@import 'styles/__variaveis';
+
+.container {
+    width: 25vh;
+}
+
+.sidebar {
+    background: $yellow;
+    color: #000000;
+    height: 100vh;
+    width: 100%;
+    transition: all 0.5s;
+
+    &__open {
+        width: 10vh;
+    }
+
+    &__top-section {
+        height: 10%;
+        background-color: #000;
+        display: flex;
+
+        &__logo {
+            height: 70%;
+            margin: auto;
+
+            &__open {
+                display: none;
+                transition: all 1s;
+            }
+        }
+    }
+
+    &__bars {
+        display: flex;
+        font-size: 2em;
+        color: #FFF;
+        margin: auto;
+
+        &__open {
+            margin-left: 2.5vmin;
+        }
+    }
+
+}
+
+
+
+.link {
+    display: flex;
+    padding: 1vh 0;
+    width: 100%;
+    gap: 1vh;
+    transition: all 1s;
+    text-decoration: none;
+    margin-left: 1.7vh;
+
+    :hover {
+        color: #000;
+        transition: all 1s;
+        text-decoration: underline;
+        transition: transform 0.5s ease-in-out;
+    }
+
+}
+
+.active {
+    background: lightskyblue;
+    color: #000;
+}
+
+.icon,
+.link_text {
+    font-size: 1.5rem;
+    color: #000;
+
+    :link {
+        text-decoration: none;
+    }
+
+    &__open {
+        display: none;
+    }
+}
