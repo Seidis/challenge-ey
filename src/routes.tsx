@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import SidesBar from './components/SideBar';
+
+
 
 export default function AppRouter() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<NavBar />} />
+				<Route path="/" element={<SidesBar />} />
 			</Routes>
 		</BrowserRouter>
 	);
