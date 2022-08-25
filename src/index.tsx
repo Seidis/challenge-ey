@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import 'normalize.css';
 import './index.css';
 import AppRouter from './routes';
-import Vagas from 'pages/Vagas';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
