@@ -2,6 +2,9 @@
 
 .container {
     width: 25vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 .sidebar {
@@ -11,12 +14,12 @@
     width: 100%;
     transition: all 0.5s;
 
-    &__open {
+    &__closed {
         width: 10vh;
     }
 
     &__top-section {
-        height: 10%;
+        height: 7%;
         background-color: #000;
         display: flex;
 
@@ -24,7 +27,7 @@
             height: 70%;
             margin: auto;
 
-            &__open {
+            &__closed {
                 display: none;
                 transition: all 1s;
             }
@@ -37,7 +40,7 @@
         color: #FFF;
         margin: auto;
 
-        &__open {
+        &__closed {
             margin-left: 2.5vmin;
         }
     }
@@ -50,7 +53,7 @@
     display: flex;
     padding: 1vh 0;
     width: 100%;
-    gap: 1vh;
+    gap: 1.5vh;
     transition: all 1s;
     text-decoration: none;
     margin-left: 1.7vh;
@@ -71,14 +74,14 @@
 
 .icon,
 .link_text {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #000;
 
     :link {
         text-decoration: none;
     }
 
-    &__open {
+    &__closed {
         display: none;
     }
 }
