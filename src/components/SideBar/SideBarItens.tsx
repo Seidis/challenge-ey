@@ -6,13 +6,13 @@ import SchoolIcon from '@mui/icons-material/School';
 
 const SideBarItens = [
 	{
-		path: '/Vagas',
+		path: '/vagas',
 		name: 'Vagas',
 		component: <Vagas />,
 		icon: <BadgeIcon />
 	},
 	{
-		path: '/Cursos',
+		path: '/cursos',
 		name: 'Cursos',
 		component: <Cursos />,
 		icon: <SchoolIcon />
