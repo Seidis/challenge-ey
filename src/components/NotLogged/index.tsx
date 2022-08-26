@@ -7,7 +7,9 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<Outlet />
+			<section className={styles.body}>
+				<Outlet />
+			</section>
 		</>
 	);
 }

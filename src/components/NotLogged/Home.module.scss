@@ -1,13 +1,10 @@
 @import 'styles/__variaveis.scss';
 
-.header {
-    background-color: #000;
+.body {
     width: 100%;
-    height: 10vh;
-}
-
-.logo {
-    width: 100%;
-    height: 7vh;
-    margin: 1vmin auto;
+    height: 100%;
+    display: flex;
+    padding-top: $top;
+    padding-right: $right;
+    padding-left: $left;
 }
