@@ -14,17 +14,11 @@ export default function AppRouter() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<NotLogged />}>
-					<Route index element={<></>} />
-					<Route path='jobs' element={<Vagas />} />
-					<Route path='courses' element={<Cursos />} />
-				</Route>
-				{/* <Route path="/dashboard" element={<Default />}>
-					<Route index element={<SidesBar />} />
+				<Route path="/" element={<Default />}>
+					<Route index element={<Default />} />
 					<Route path='/vagas' element={<Vagas />} />
 					<Route path='/cursos' element={<Cursos />} />
-				</Route> */}
-				<Route path='/teste' element={<App />} />
+				</Route>
 			</Routes>
 		</BrowserRouter >
 	);

@@ -14,41 +14,20 @@ export default function SideBar() {
 
 	return (
 		<div className={styles.container}>
-			<div className={classNames({
-				[styles.sidebar]: true,
-				[styles.sidebar__closed]: !isOpen
-			})} onMouseOver={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-				<div className={classNames({
-					[styles['sidebar__top-section']]: true,
-					[styles['sidebar__top-section__closed']]: !isOpen
-				})}>
-					<div className={classNames({
-						[styles.sidebar__bars]: true,
-						[styles.sidebar__bars__closed]: isOpen
-					})}>
-						<FaBars />
-					</div>
-					<EYLogo
-						className={classNames({
-							[styles['sidebar__top-section__logo']]: true,
-							[styles['sidebar__top-section__logo__closed']]: !isOpen
-						})}
-					/>
-				</div>
+			<div className={styles.top_section}>
+				<FaBars />
+			</div>
+			<ul className={styles.list}>
 				{
 					menuRoutes.map((routes, index) => (
-						<div key={index} className={styles.link}>
+						<li key={index}>
 							<Link to={routes.path} className={styles.link}>
 								<div className={styles.icon}>{routes.icon}</div>
-								<div className={classNames({
-									[styles.link_text]: true,
-									[styles.link_text__closed]: !isOpen
-								})}>{routes.name}</div>
 							</Link>
-						</div>
+						</li>
 					))
 				}
-			</div>
+			</ul>
 		</div >
 	);
 }

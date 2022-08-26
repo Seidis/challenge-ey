@@ -6,10 +6,14 @@ import styles from './Default.module.scss';
 export default function Default() {
 	return (
 		<div className={styles.container}>
-			<SideBar />
-			<section>
-				<Outlet />
-			</section>
-		</div>
+			<div className={styles.box}>
+				<SideBar />
+			</div>
+			<div style={{ display: 'block', width: '100%', padding: '15px' }}>
+				<div style={{ padding: '15px', display: 'flex', background: '#d4d4d4', 'borderRadius': '4px' }}>
+					menu
+				</div>
+			</div>
+		</div >
 	);
 }

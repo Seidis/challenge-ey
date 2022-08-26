@@ -1,87 +1,48 @@
 @import 'styles/__variaveis';
 
 .container {
-    width: 25vh;
-    position: fixed;
+    width: 55px;
+    height: 100vh;
     left: 0;
     top: 0;
-}
-
-.sidebar {
+    cursor: pointer;
     background: $yellow;
-    color: #000000;
-    height: 100vh;
-    width: 100%;
-    transition: all 0.5s;
-
-    &__closed {
-        width: 10vh;
-    }
-
-    &__top-section {
-        height: 7%;
-        background-color: #000;
-        display: flex;
-
-        &__logo {
-            height: 70%;
-            margin: auto;
-
-            &__closed {
-                display: none;
-                transition: all 1s;
-            }
-        }
-    }
-
-    &__bars {
-        display: flex;
-        font-size: 2em;
-        color: #FFF;
-        margin: auto;
-
-        &__closed {
-            margin-left: 2.5vmin;
-        }
-    }
-
+    transition: width .2s ease-in-out;
 }
 
+.container:hover {
+    width: 200px;
+}
 
+.container:hover .link_text {
+    display: block;
+}
 
-.link {
+.container:hover .logo {
+    display: block;
+}
+
+.top_section {
+    background-color: #000;
+    color: #eee;
+    padding: 15px;
+    font-size: 1.5rem;
     display: flex;
-    padding: 1vh 0;
-    width: 100%;
-    gap: 1.5vh;
-    transition: all 1s;
-    text-decoration: none;
-    margin-left: 1.7vh;
+    align-items: center;
+}
 
-    :hover {
-        color: #000;
-        transition: all 1s;
-        text-decoration: underline;
-        transition: transform 0.5s ease-in-out;
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        padding: 8px 15px;
     }
-
 }
 
-.active {
-    background: lightskyblue;
-    color: #000;
-}
-
-.icon,
-.link_text {
+.icon {
     font-size: 1.7rem;
     color: #000;
-
-    :link {
-        text-decoration: none;
-    }
-
-    &__closed {
-        display: none;
-    }
 }
