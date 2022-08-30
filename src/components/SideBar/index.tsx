@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SideBarItens from './SideBarItens';
 
 import { ReactComponent as EYLogo } from 'assets/ey_text.svg';
@@ -8,6 +8,7 @@ import { FaBars } from 'react-icons/fa';
 export default function SideBar() {
 
 	const menuRoutes = SideBarItens;
+	const navigate = useNavigate();
 
 	return (
 		<div className={styles.container}>
@@ -29,6 +30,14 @@ export default function SideBar() {
 					))
 				}
 			</ul>
+			<button
+				onClick={() => {
+					window.localStorage.removeItem('user');
+					navigate(0);
+				}}
+			>
+				sair
+			</button>
 		</div >
 	);
 }

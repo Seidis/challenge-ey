@@ -1,4 +1,6 @@
-export const firebaseConfig = {
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
 	apiKey: 'AIzaSyCxS89udD8rRisJ5fi6j4ML21LhMrZF6GU',
 	authDomain: 'challenge-ey.firebaseapp.com',
 	projectId: 'challenge-ey',
@@ -7,3 +9,5 @@ export const firebaseConfig = {
 	appId: '1:755281335323:web:41c2a46d232036d66694be',
 	measurementId: 'G-VEP66J0LHW'
 };
+
+export const firebaseApp = initializeApp(firebaseConfig);
