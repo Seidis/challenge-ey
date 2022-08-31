@@ -98,6 +98,7 @@ export default function Home() {
 								id="email"
 								label="Email"
 								variant="filled"
+								required
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								error={error}
@@ -107,6 +108,7 @@ export default function Home() {
 								label="Password"
 								type="password"
 								variant="filled"
+								required
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 								error={error}

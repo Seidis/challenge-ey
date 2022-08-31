@@ -1,12 +1,13 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 
-import SidesBar from 'components/SideBar';
-import Vagas from 'pages/Vagas';
-import Cursos from 'pages/Cursos';
 import Default from 'components/Default';
-import Login from 'pages/Login';
-import { useEffect } from 'react';
 
+import Login from 'pages/Login';
+import Register from 'pages/Login/Register';
+
+import Cursos from 'pages/Cursos';
+import Vagas from 'pages/Vagas';
 
 
 export default function AppRouter() {
@@ -14,14 +15,17 @@ export default function AppRouter() {
 	const user = window.localStorage.getItem('user');
 
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={user ? <Default /> : <Login />}>
-					<Route index element={<></>} />
-					<Route path='vagas' element={<Vagas />} />
-					<Route path='cursos' element={<Cursos />} />
-				</Route>
-			</Routes>
-		</BrowserRouter >
+		<SnackbarProvider maxSnack={3}>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/register' element={<Register />} />
+					<Route path="/" element={user ? <Default /> : <Login />}>
+						<Route index element={<></>} />
+						<Route path='vagas' element={<Vagas />} />
+						<Route path='cursos' element={<Cursos />} />
+					</Route>
+				</Routes>
+			</BrowserRouter >
+		</SnackbarProvider>
 	);
 }

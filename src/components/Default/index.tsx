@@ -1,5 +1,4 @@
 import SideBar from 'components/SideBar';
-import { Children } from 'react';
 import { Outlet } from 'react-router-dom';
 import styles from './Default.module.scss';
 
