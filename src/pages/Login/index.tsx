@@ -10,7 +10,7 @@ import Button, { ButtonProps } from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import { Checkbox, Divider, FormControlLabel, FormGroup, IconButton } from '@mui/material';
+import { Checkbox, Divider, FormControlLabel, FormGroup, Grid, IconButton } from '@mui/material';
 import Stack from '@mui/system/Stack';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -49,6 +49,7 @@ export default function Home() {
 		try {
 			const getUser = async () => {
 				const data = await getDocs(userCollectionRef);
+				// eslint-disable-next-line
 				const users: any[] = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 				const validation = users.find((user) => user.email === email && user.password === password);
 
@@ -79,9 +80,18 @@ export default function Home() {
 		<div className={styles.container} >
 			<div className={styles.auth}>
 				<div className={styles.auth_content}>
-					<div className={styles.auth_logo}>
-						<Logo style={{ width: '150px', height: '100px' }} />
-					</div>
+					<Grid
+						container
+						direction="row"
+						justifyContent="center"
+						alignItems="center"
+					>
+						<Grid
+							item
+						>
+							<Logo style={{ width: '150px', height: '100px' }} />
+						</Grid>
+					</Grid>
 					{loading ?
 						<div className={styles.loading}>
 							<CircularProgress
@@ -140,6 +150,7 @@ export default function Home() {
 								<Button
 									variant="text"
 									color='inherit'
+									onClick={() => navigate('/register')}
 								>
 									Registre-se
 								</Button>
