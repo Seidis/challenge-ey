@@ -30,10 +30,10 @@ export default function Register() {
     const verifyEmail = async (email: string) => {
         const users = await getDocs(collection(db, 'users'));
         const emails = users.docs.map(doc => doc.data().email);
-        return emails.includes(email);
+        return !emails.includes(email);
     };
 
-    const handleAdd = () => {
+    const handleAdd = async () => {
         setLoading(true);
         const addUser = async (user: any) => {
             try {
@@ -57,7 +57,7 @@ export default function Register() {
             role: 'user'
         };
 
-        if (!verifyEmail(payload.email)) {
+        if (await verifyEmail(payload.email)) {
             addUser(payload);
         } else {
             setSuccess(false);
