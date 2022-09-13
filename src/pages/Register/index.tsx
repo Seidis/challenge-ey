@@ -35,6 +35,7 @@ export default function Register() {
 
     const handleAdd = async () => {
         setLoading(true);
+        // eslint-disable-next-line
         const addUser = async (user: any) => {
             try {
                 const docRef = await addDoc(collection(db, 'users'), user);

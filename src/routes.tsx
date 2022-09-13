@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Default from 'components/Default';
+// import OldDefault from 'components/OldDefault';
+import Default from 'components/Default/Default';
 
 import Login from 'pages/Login';
 import Register from 'pages/Register';
@@ -18,7 +19,7 @@ export default function AppRouter() {
 			<Routes>
 				<Route path='/register' element={<Register />} />
 				<Route path="/" element={user ? <Default /> : <Login />}>
-					<Route index element={<></>} />
+					<Route index element={<Vagas />} />
 					<Route path='vagas' element={<Vagas />} />
 					<Route path='cursos' element={<Cursos />} />
 				</Route>
