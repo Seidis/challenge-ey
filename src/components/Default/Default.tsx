@@ -24,8 +24,6 @@ function DefaultPage() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState('Dashboard');
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -49,7 +47,6 @@ function DefaultPage() {
             noWrap
             sx={{ flexGrow: 1 }}
           >
-            {title}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="warning">
@@ -81,7 +78,6 @@ function DefaultPage() {
               color="inherit"
               onClick={() => {
                 navigate(item.link);
-                setTitle(item.name);
               }}
             >
               <div>{item.component}</div>
@@ -98,7 +94,6 @@ function DefaultPage() {
               color="inherit"
               onClick={() => {
                 navigate(item.link);
-                setTitle(item.name);
               }}
             >
               <div>{item.component}</div>
