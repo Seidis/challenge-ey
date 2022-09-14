@@ -1,6 +1,20 @@
-@import 'styles/__variaveis.scss';
+.header_toolbar {
+    padding-right: 24px;
+    background-color: #222;
+}
 
-.container {
+.drawer_tootlbar {
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: right;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.box_outlet {
+    background-color: #f5f5f5;
+    flex-grow: 1;
+    height: 100vh;
+    overflow: auto;
+    padding: 0 2%;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Academic from './Academic';
 
-import { Typography, Box, Button, Grid, Stack } from '@mui/material';
+import { Typography, Box, Button, Grid } from '@mui/material';
 import Professional from './Professional';
 
 export default function Experience() {
