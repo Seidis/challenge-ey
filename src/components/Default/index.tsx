@@ -106,7 +106,7 @@ function DefaultPage() {
         className={styles.box_outlet}
       >
         <Toolbar />
-        <Paper elevation={4}>
+        <Paper elevation={4} sx={{ p: '2% 5%', my: '2%' }}>
           <Outlet />
         </Paper>
         {Copyright()}

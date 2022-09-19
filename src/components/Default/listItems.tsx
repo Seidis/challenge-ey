@@ -16,7 +16,7 @@ export const mainListItems = [
   {
     name: 'Dashboard',
     icon: <DashboardIcon />,
-    link: '/dashboard',
+    link: '/',
     component: <>
       <ListItemButton>
         <ListItemIcon>
