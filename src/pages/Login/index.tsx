@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Login.module.scss';
 import { ReactComponent as Logo } from 'assets/ey_text.svg';
 
@@ -43,6 +43,8 @@ export default function Home() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const [data, setData] = useState<any>(null);
+
 
 
 
@@ -79,10 +81,25 @@ export default function Home() {
 
 	}
 
+	useEffect(() => {
+		getData();
+	}, []);
+
+	const getData = () => {
+		api
+			.get('users')
+			.then((res) => {
+				setData(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<div className={styles.container} >
 			<>
-				{api.get('users').then((res) => console.log(res))}
+				{console.log(data)}
 				<div className={styles.auth}>
 					<div className={styles.auth_content}>
 						<Grid
