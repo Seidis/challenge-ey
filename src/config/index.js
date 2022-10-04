@@ -1,4 +1,4 @@
 module.exports = {
-    apiUrl: process.env.API_URL
+    apiUrl: 'http://127.0.0.1:8000/'
 };
 
