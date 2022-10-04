@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { ExitToApp } from '@mui/icons-material';
 
 import { Api } from 'api/api';
-import axios from 'axios';
-import { request } from 'https';
 
 export function AvatarChip() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

@@ -3,17 +3,15 @@ import styles from './Login.module.scss';
 import { ReactComponent as Logo } from 'assets/ey_text.svg';
 
 import TextField from '@mui/material/TextField';
-import Button, { ButtonProps } from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
-import { styled } from '@mui/material/styles';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Alert, AlertTitle, Checkbox, Divider, FormControlLabel, FormGroup, Grid, IconButton, Snackbar } from '@mui/material';
 import Stack from '@mui/system/Stack';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
-import { useAuth } from 'context/AuthProvider/useAuth';
 import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from 'context/AuthProvider/utils';
 import { IUser } from 'context/AuthProvider/types';
 
@@ -38,7 +36,6 @@ export default function Home() {
     const [password, setPassword] = useState('');
 
 
-    const auth = useAuth();
     async function onFinish(values: { email: string, password: string }) {
 
         console.log('Received values of form: ', values);
@@ -60,6 +57,7 @@ export default function Home() {
 
     }
 
+    // eslint-disable-next-line
     const [user, setUser] = useState<IUser | null>(null);
     useEffect(() => {
         const user = getUserLocalStorage();

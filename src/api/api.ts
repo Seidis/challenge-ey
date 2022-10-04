@@ -9,6 +9,7 @@ export const Api = axios.create({
 Api.interceptors.request.use(
     (config) => {
         const user = getUserLocalStorage();
+        // eslint-disable-next-line
         config.headers!.Authorization = user?.token;
         return config;
     },

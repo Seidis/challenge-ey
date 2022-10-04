@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import OldDefault from 'components/OldDefault';
 import Default from 'components/Default/Default';
-import NotFound from 'components/NotFound';
+// import NotFound from 'components/NotFound';
 import { ProtectedLayout } from 'components/ProtectedLayout';
 
 import Login from 'pages/LoginRefactored';
@@ -20,11 +19,11 @@ export default function AppRouter() {
 			<Routes>
 				<Route path='/register' element={<Register />} />
 				<Route path='/login' element={<Login />} />
+				{/* <Route path='*' element={<NotFound />} /> */}
 			</Routes>
 			<ProtectedLayout>
 				<Routes>
 					<Route path="/" element={<Default />}>
-						<Route path='*' element={<NotFound />} />
 						<Route path='dashboard' element={<Dashboard />} />
 						<Route path='vagas' element={<Vagas />} />
 						<Route path='cursos' element={<Cursos />} />
