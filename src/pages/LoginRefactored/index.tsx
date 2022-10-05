@@ -38,7 +38,7 @@ export default function Home() {
 
     async function onFinish(values: { email: string, password: string }) {
 
-        console.log('Received values of form: ', values);
+        setLoading(true);
 
         const response = await LoginRequest(values.email, values.password);
 
