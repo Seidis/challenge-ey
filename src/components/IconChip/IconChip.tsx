@@ -9,6 +9,8 @@ import { chipItems } from './listItems';
 import { useNavigate } from 'react-router-dom';
 import { ExitToApp } from '@mui/icons-material';
 
+import { Api } from 'api/api';
+
 export function AvatarChip() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -25,14 +27,26 @@ export function AvatarChip() {
         setAnchorEl(null);
     };
     const handleExit = () => {
-        window.localStorage.removeItem('user');
-        navigate(0);
+        window.localStorage.removeItem('id');
+        navigate('/login');
     };
 
-    const getName = window.localStorage?.getItem('user') || '';
-    const firstPosition = getName.search('name');
-    const name = getName?.slice(firstPosition + 7, firstPosition + 20).split(' ')[0];
+    async function getUser(id: string) {
+        const request = await Api({
+            method: 'GET',
+            url: '/users/' + id,
+        });
 
+        return request.data;
+    }
+
+    const getID = JSON.parse(window.localStorage?.getItem('id') || '{}');
+
+    const User = getUser(getID.id);
+
+    console.log(User);
+
+    const name = '';
 
     return (
         <div>
