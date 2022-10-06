@@ -14,7 +14,11 @@ export async function LoginRequest(user: string, password: string) {
     try {
         const request = await Api({
             method: 'POST',
-            url: '/users/login?user=' + user + '&password=' + password,
+            url: '/users/login',
+            params: {
+                user,
+                password,
+            }
         });
 
         return request.data;

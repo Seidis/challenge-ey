@@ -5,7 +5,7 @@ import Default from 'components/Default/Default';
 import { ProtectedLayout } from 'components/ProtectedLayout';
 
 import Login from 'pages/LoginRefactored';
-import Register from 'pages/Register';
+import Register from 'pages/RegisterRefactored';
 
 import Cursos from 'pages/Cursos';
 import Vagas from 'pages/Vagas';

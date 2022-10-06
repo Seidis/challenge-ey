@@ -22,7 +22,6 @@ export function AvatarChip() {
     };
     const navigate = useNavigate();
     const navigateTo = (nav: string) => {
-        console.log(nav);
         navigate(nav);
         setAnchorEl(null);
     };
@@ -32,21 +31,18 @@ export function AvatarChip() {
     };
 
     async function getUser(id: string) {
-        const request = await Api({
-            method: 'GET',
-            url: '/users/' + id,
-        });
+        const request = await Api.get('/users/' + id);
 
         return request.data;
     }
 
     const getID = JSON.parse(window.localStorage?.getItem('id') || '{}');
 
-    const User = getUser(getID.id);
+    const [name, setName] = useState('');
+    getUser(getID.id).then((response) => {
+        setName(response.name);
+    });
 
-    console.log(User);
-
-    const name = '';
 
     return (
         <div>

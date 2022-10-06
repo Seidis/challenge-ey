@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(78.25% 78.25% at 70.31% 21.75%, #36343e 0, #0a090c 90.62%);
+}
+
+.card {
+    width: 40%;
+    max-height: 70vh;
+    padding: 20px;
+    position: relative;
+    align-items: inherit;
+    background-color: #fff;
+    border-radius: 1%;
+}

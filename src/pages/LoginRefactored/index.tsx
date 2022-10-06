@@ -40,20 +40,21 @@ export default function Home() {
 
         setLoading(true);
 
-        const response = await LoginRequest(values.email, values.password);
+        try {
+            const response = await LoginRequest(values.email, values.password);
 
-        if (!response) {
+            const payload = { id: response.id, token: response.access_token };
+
+            setUser(payload);
+            await setUserLocalStorage(payload);
+            setLoading(false);
+            navigate('/dashboard');
+        } catch (error) {
             setError(true);
             setLoading(false);
             setOpenSnackbar(true);
         }
 
-        const payload = { id: response.id, token: response.access_token };
-
-        setUser(payload);
-        setUserLocalStorage(payload);
-
-        navigate('/dashboard');
 
     }
 
