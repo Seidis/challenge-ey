@@ -24,6 +24,8 @@ function DefaultPage() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  const user = JSON.parse(window.localStorage?.getItem('id') || '{}');
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -84,21 +86,29 @@ function DefaultPage() {
             </Link>
           ))}
           <Divider sx={{ my: 1 }} />
-          {/* <ListSubheader component="div" inset>
-            Saved reports
-          </ListSubheader> */}
-          {secondaryListItems.map((item, index) => (
-            item ? <Link
-              key={index}
-              underline="none"
-              color="inherit"
-              onClick={() => {
-                navigate(item.link);
-              }}
-            >
-              <div>{item.component}</div>
-            </Link> : ''
-          ))}
+          {
+            user?.role === 'ADMIN' && (
+              <>
+                <ListSubheader component="div" inset sx={{
+                  backgroundColor: '#F7D358',
+                }}>
+                  Painel Administrativo
+                </ListSubheader>
+                {secondaryListItems.map((item, index) => (
+                  item ? <Link
+                    key={index}
+                    underline="none"
+                    color="inherit"
+                    onClick={() => {
+                      navigate(item.link);
+                    }}
+                  >
+                    <div>{item.component}</div>
+                  </Link> : ''
+                ))}
+              </>
+            )
+          }
         </List>
       </Drawer>
       <Box
@@ -106,7 +116,12 @@ function DefaultPage() {
         className={styles.box_outlet}
       >
         <Toolbar />
-        <Paper elevation={4}>
+        <Paper elevation={4}
+          sx={{
+            m: 2,
+            p: 2
+          }}
+        >
           <Outlet />
         </Paper>
         {Copyright()}

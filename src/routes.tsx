@@ -10,6 +10,9 @@ import Register from 'pages/RegisterRefactored';
 import Cursos from 'pages/Cursos';
 import Vagas from 'pages/Vagas';
 import Dashboard from 'pages/Dashboard';
+import PageVaga from 'pages/Vagas/PageVaga';
+import EditVaga from 'pages/Vagas/EditVaga';
+import FormVaga from 'pages/Vagas/FormVaga';
 
 
 export default function AppRouter() {
@@ -26,6 +29,9 @@ export default function AppRouter() {
 					<Route path="/" element={<Default />}>
 						<Route path='dashboard' element={<Dashboard />} />
 						<Route path='vagas' element={<Vagas />} />
+						<Route path='vagas/:id' element={<PageVaga />} />
+						<Route path='vagas/:id/edit' element={<EditVaga />} />
+						<Route path='vagas/form' element={<FormVaga />} />
 						<Route path='cursos' element={<Cursos />} />
 					</Route>
 				</Routes>

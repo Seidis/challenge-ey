@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Avatar, Chip, MenuItem, Divider } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
@@ -39,9 +39,11 @@ export function AvatarChip() {
     const getID = JSON.parse(window.localStorage?.getItem('id') || '{}');
 
     const [name, setName] = useState('');
-    getUser(getID.id).then((response) => {
-        setName(response.name);
-    });
+    useEffect(() => {
+        getUser(getID.id).then((response) => {
+            setName(response.name);
+        });
+    }, []);
 
 
     return (

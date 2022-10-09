@@ -50,4 +50,17 @@ export const mainListItems = [
   }
 ];
 
-export const secondaryListItems: ListitemProps[] = [];
+export const secondaryListItems: ListitemProps[] = [
+  {
+    name: 'Nova Vaga',
+    icon: <BadgeIcon />,
+    link: '/vagas/form',
+    component:
+      <ListItemButton>
+        <ListItemIcon>
+          <BadgeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Nova Vaga" />
+      </ListItemButton>
+  }
+];

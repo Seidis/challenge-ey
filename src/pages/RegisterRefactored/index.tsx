@@ -15,7 +15,7 @@ import Termo from './Termo';
 export default function Register() {
     const navigate = useNavigate();
 
-    const [check, setCheck] = useState(false);
+    const [acceptTerms, setAcceptTerms] = useState(false);
 
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [snackbarType, setSnackbarType] = useState<'success' | 'error'>('error');
@@ -42,6 +42,13 @@ export default function Register() {
         setLoading(true);
         if (name === '' || surname === '' || email === '' || password === '' || confirmPassword === '') {
             setMessage('Preencha todos os campos');
+            setOpenSnackbar(true);
+            setLoading(false);
+            return;
+        }
+
+        if (!acceptTerms) {
+            setMessage('Você precisa aceitar os termos de uso');
             setOpenSnackbar(true);
             setLoading(false);
             return;
@@ -131,94 +138,92 @@ export default function Register() {
                 <Box
                     className={styles.card}
                 >
-                    {
-                        !check ?
-                            <Stack
-                                direction="column"
-                                justifyContent="center"
-                                alignItems="center"
-                                sx={{ mb: 2 }}
-                            >
-                                <Logo style={{ width: '150px', height: '100px' }} />
-                                <Typography variant='h5' sx={{ margin: '3% 0' }}>Formulário de Cadastro</Typography>
-                                <Grid
-                                    container
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    spacing={4}
-                                    sx={{ width: '60%' }}
-                                >
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            label="Nome"
-                                            variant="standard"
-                                            placeholder='Digite seu nome'
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            fullWidth
-                                            required
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            label="Sobrenome"
-                                            variant="standard"
-                                            placeholder='Digite seu sobrenome'
-                                            value={surname}
-                                            onChange={(e) => setSurname(e.target.value)}
-                                            fullWidth
-                                            required
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            label="Email"
-                                            variant="standard"
-                                            placeholder='Digite seu email'
-                                            error={emailError}
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            fullWidth
-                                            required
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <PasswordInput
-                                            password={password}
-                                            setPassword={setPassword}
-                                            error={passwordError}
-                                            label='Senha'
-                                            placeholder='Digite sua senha'
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <PasswordInput
-                                            password={confirmPassword}
-                                            setPassword={setConfirmPassword}
-                                            error={passwordError}
-                                            label="Confirmar senha"
-                                            placeholder='Confirme sua senha'
-                                        />
-                                    </Grid>
-                                </Grid>
-                                <ColorButton
-                                    variant='contained'
-                                    onClick={() => onClick()}
-                                    sx={{ width: '50%', marginTop: '10%' }}
-                                >
-                                    Cadastrar
-                                </ColorButton>
-                                <Button
-                                    color='inherit'
-                                    sx={{ marginTop: '2%' }}
-                                    onClick={() => navigate('/login')}
-                                >
-                                    Já possui uma conta? Clique aqui e faça o login
-                                </Button>
-                            </Stack>
-                            :
-                            <Termo />
-                    }
+                    <Stack
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                        sx={{ mb: 2 }}
+                    >
+                        <Logo style={{ width: '150px', height: '100px' }} />
+                        <Typography variant='h5' sx={{ margin: '3% 0' }}>Formulário de Cadastro</Typography>
+                        <Grid
+                            container
+                            justifyContent="center"
+                            alignItems="center"
+                            spacing={4}
+                            sx={{ width: '60%' }}
+                        >
+                            <Grid item xs={12}>
+                                <TextField
+                                    label="Nome"
+                                    variant="standard"
+                                    placeholder='Digite seu nome'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    fullWidth
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    label="Sobrenome"
+                                    variant="standard"
+                                    placeholder='Digite seu sobrenome'
+                                    value={surname}
+                                    onChange={(e) => setSurname(e.target.value)}
+                                    fullWidth
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    label="Email"
+                                    variant="standard"
+                                    placeholder='Digite seu email'
+                                    error={emailError}
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    fullWidth
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <PasswordInput
+                                    password={password}
+                                    setPassword={setPassword}
+                                    error={passwordError}
+                                    label='Senha'
+                                    placeholder='Digite sua senha'
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <PasswordInput
+                                    password={confirmPassword}
+                                    setPassword={setConfirmPassword}
+                                    error={passwordError}
+                                    label="Confirmar senha"
+                                    placeholder='Confirme sua senha'
+                                />
+                            </Grid>
+                        </Grid>
+                        <Termo
+                            setAcceptTerms={setAcceptTerms}
+                        />
+                        <ColorButton
+                            variant='contained'
+                            onClick={() => onClick()}
+                            sx={{ width: '50%', marginTop: '3%' }}
+                        >
+                            Cadastrar
+                        </ColorButton>
+                        <Button
+                            color='inherit'
+                            sx={{ marginTop: '2%' }}
+                            onClick={() => navigate('/login')}
+                        >
+                            Já possui uma conta? Clique aqui e faça o login
+                        </Button>
+                    </Stack>
                 </Box>
             </Box>
             <Snackbar

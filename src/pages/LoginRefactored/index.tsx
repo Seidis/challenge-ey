@@ -43,12 +43,12 @@ export default function Home() {
         try {
             const response = await LoginRequest(values.email, values.password);
 
-            const payload = { id: response.id, token: response.access_token };
+            const payload = { id: response.id, token: response.access_token, role: response.role };
 
             setUser(payload);
             await setUserLocalStorage(payload);
             setLoading(false);
-            navigate('/dashboard');
+            navigate('/dashboard', { replace: true });
         } catch (error) {
             setError(true);
             setLoading(false);
