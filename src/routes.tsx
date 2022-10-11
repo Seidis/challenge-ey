@@ -7,11 +7,14 @@ import { ProtectedLayout } from 'components/ProtectedLayout';
 import Login from 'pages/LoginRefactored';
 import Register from 'pages/RegisterRefactored';
 
-import Cursos from 'pages/Cursos';
-import Vagas from 'pages/Vagas';
 import Dashboard from 'pages/Dashboard';
+
+import Cursos from 'pages/Cursos';
+import FormCursos from 'pages/Cursos/FormCursos';
+import PageCursos from 'pages/Cursos/PageCursos';
+
+import Vagas from 'pages/Vagas';
 import PageVaga from 'pages/Vagas/PageVaga';
-import EditVaga from 'pages/Vagas/EditVaga';
 import FormVaga from 'pages/Vagas/FormVaga';
 
 
@@ -30,9 +33,11 @@ export default function AppRouter() {
 						<Route path='dashboard' element={<Dashboard />} />
 						<Route path='vagas' element={<Vagas />} />
 						<Route path='vagas/:id' element={<PageVaga />} />
-						<Route path='vagas/:id/edit' element={<EditVaga />} />
 						<Route path='vagas/form' element={<FormVaga />} />
+						<Route path='vagas/form/:id' element={<FormVaga />} />
 						<Route path='cursos' element={<Cursos />} />
+						<Route path='cursos/:id' element={<PageCursos />} />
+						<Route path='cursos/form' element={<FormCursos />} />
 					</Route>
 				</Routes>
 			</ProtectedLayout>

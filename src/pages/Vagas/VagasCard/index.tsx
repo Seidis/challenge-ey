@@ -1,12 +1,12 @@
 // eslint-disable-next-line
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Chip, Divider, Typography } from "@mui/material";
 
 import { Stack, Skeleton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { VagasProps } from "../__types";
 
 // eslint-disable-next-line
-export default function VagasCard({ id, image, title, shortDescription, description, salary, location, type, level, loading }: VagasProps) {
+export default function VagasCard({ id, image, title, short_description, description, salary, location, type, level, expire_date, loading }: VagasProps) {
 
     const navigate = useNavigate();
 
@@ -23,18 +23,34 @@ export default function VagasCard({ id, image, title, shortDescription, descript
                         <CardActionArea
                             onClick={() => navigate('/vagas/' + id)}
                         >
-                            {/* <CardMedia
-                                component="img"
-                                height="140"
-                                image={image || 'https://source.unsplash.com/random'}
-                            /> */}
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {title}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {shortDescription || description}
+                                    {short_description}
                                 </Typography>
+                                <Stack
+                                    direction="row"
+                                    justifyContent='space-between'
+                                    alignItems='center'
+                                    sx={{
+                                        marginTop: '10px',
+                                        marginBottom: '10px',
+                                        // px: '20%'
+                                    }}
+                                    spacing={1}
+                                >
+                                    <Chip
+                                        label={type}
+                                        variant="outlined"
+                                    />
+                                    <Divider orientation="vertical" flexItem />
+                                    <Chip
+                                        label={level}
+                                        variant="outlined"
+                                    />
+                                </Stack>
                                 <Typography variant="body1" color="text" align="center" sx={{
                                     marginTop: 2,
                                 }}>

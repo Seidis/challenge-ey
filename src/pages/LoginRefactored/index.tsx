@@ -66,8 +66,6 @@ export default function Home() {
         if (user) {
             setUser(user);
             navigate('/dashboard');
-        } else {
-            console.log('no user');
         }
     }, [loading]);
 

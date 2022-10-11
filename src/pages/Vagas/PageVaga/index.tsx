@@ -1,10 +1,11 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import { Api } from "api/api";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { FaEdit } from "react-icons/fa";
 import { TbArrowBack } from 'react-icons/tb';
+import { IoRocketSharp } from "react-icons/io5";
 import { ReactComponent as NotFoundSVG } from 'assets/not_found.svg';
 import Title from "components/Title";
 import { Vagas } from "../__types";
@@ -18,10 +19,22 @@ export default function PageVaga() {
         title: '',
         short_description: '',
         description: '',
-        salary: '',
-        location: '',
+        salary: 0,
+        city: '',
+        state: '',
         type: '',
-        level: ''
+        level: '',
+        expire_date: '',
+        tecnical: false,
+        personal: false,
+        group_event: false,
+        first_interview: false,
+        final_interview: false,
+        tecnical_date: '',
+        personal_date: '',
+        group_date: '',
+        first_interview_date: '',
+        final_interview_date: '',
     });
     const [error, setError] = useState(false);
 
@@ -40,7 +53,18 @@ export default function PageVaga() {
     }
 
     function onClickEdit() {
-        navigate('/vagas/' + id + '/edit');
+        navigate('/vagas/form/' + id);
+    }
+
+    function handleCandidatar() {
+        Api.post('/candidaturas', {
+            user_id: user.id,
+            vaga_id: vaga.id,
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
 
@@ -62,7 +86,6 @@ export default function PageVaga() {
                                 marginTop: '5%'
                             }}
                         />
-                        {console.log('aqui')}
                     </>
                 </Box>
             );
@@ -95,19 +118,65 @@ export default function PageVaga() {
                             </Button>
                         }
                     </Stack>
-                    <Box>
-                        <Title title={vaga.title} />
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                marginTop: '4%',
-                                marginLeft: '8%'
-                            }}
-
+                    <Title title={vaga.title} />
+                    <Grid
+                        container
+                        spacing={2}
+                        justifyContent="center"
+                        alignItems="center"
+                        sx={{
+                            marginTop: '2rem',
+                            marginBottom: '2rem',
+                            px: '7%'
+                        }}
+                    >
+                        <Grid item xs={12} md={12}>
+                            <Typography
+                                variant="h6"
+                            >
+                                {vaga.description}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    marginTop: '2rem'
+                                }}
+                            >
+                                {vaga.type} - {vaga.level}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    marginTop: '2rem'
+                                }}
+                            >
+                                Sálario: R$ {vaga.salary}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    marginTop: '2rem'
+                                }}
+                            >
+                                {vaga.city} - {vaga.state}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Stack
+                        direction="row"
+                        justifyContent="flex-end"
+                        alignItems="center"
+                        spacing={2}
+                    >
+                        <Button
+                            variant="outlined"
+                            startIcon={<IoRocketSharp />}
+                            onClick={() => window.history.back()}
+                            color='success'
                         >
-                            {vaga.description}
-                        </Typography>
-                    </Box>
+                            Quero me candidatar
+                        </Button>
+                    </Stack>
                 </>
             );
         }

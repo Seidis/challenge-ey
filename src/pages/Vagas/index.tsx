@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Paper } from "@mui/material";
 import { Api } from "api/api";
 import Title from "components/Title";
 import { useEffect, useState } from "react";
@@ -27,42 +27,63 @@ export default function Vagas() {
 
 	return (
 		<Box>
-			<Box>
-				<Title
-					title="Vagas Recomendadas para Você"
-				/>
-				<Grid
-					container
-					direction="row"
-					justifyContent="center"
-					alignItems="center"
-					spacing={2}
+			<Box
+				sx={{
+					marginTop: '1%',
+				}}
+			>
+				<Paper
+					elevation={8}
 					sx={{
-						marginTop: '20px',
-						marginBottom: '80px'
+						padding: '1%',
+						backgroundColor: '#f5f5f5'
 					}}
 				>
-					{
-						vagas.map((vaga, index) => (
-							<Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-								<VagasCard
-									id={vaga.id}
-									image={vaga.image}
-									title={vaga.title}
-									shortDescription={vaga.shortDescription}
-									description={vaga.description}
-									salary={vaga.salary}
-									location={vaga.location}
-									type={vaga.type}
-									level={vaga.level}
-									loading={vaga.loading}
-								/>
-							</Grid>
-						))
-					}
-				</Grid>
+					<Title
+						title="Vagas Recomendadas para Você"
+					/>
+					<Grid
+						container
+						direction="row"
+						justifyContent="center"
+						alignItems="center"
+						spacing={2}
+						sx={{
+							marginTop: '1%',
+							marginBottom: '40px'
+						}}
+					>
+						{
+							vagas.map((vaga, index) =>
+								index < 3 ?
+									(
+										<Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+											<VagasCard
+												id={vaga.id}
+												image={vaga.image}
+												title={vaga.title}
+												short_description={vaga.short_description}
+												description={vaga.description}
+												salary={vaga.salary}
+												location={vaga.location}
+												type={vaga.type}
+												level={vaga.level}
+												expire_date={vaga.expire_date}
+												loading={vaga.loading}
+											/>
+										</Grid>
+									)
+									: null
+							)
+						}
+					</Grid>
+				</Paper>
 			</Box>
-			<Box>
+			<Box
+				sx={{
+					paddingTop: '1%'
+				}}
+			>
 				<Title
 					title="Todas as Vagas"
 				/>
@@ -73,8 +94,9 @@ export default function Vagas() {
 					alignItems="space-between"
 					spacing={2}
 					sx={{
-						marginTop: '20px',
-						marginBottom: '100px'
+						marginTop: '1%',
+						marginBottom: '5%',
+						px: '5%'
 					}}
 				>
 					{
@@ -84,12 +106,13 @@ export default function Vagas() {
 									id={vaga.id}
 									image={vaga.image}
 									title={vaga.title}
-									shortDescription={vaga.shortDescription}
+									short_description={vaga.short_description}
 									description={vaga.description}
 									salary={vaga.salary}
 									location={vaga.location}
 									type={vaga.type}
 									level={vaga.level}
+									expire_date={vaga.expire_date}
 									loading={vaga.loading}
 								/>
 							</Grid>

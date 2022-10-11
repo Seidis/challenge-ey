@@ -62,5 +62,17 @@ export const secondaryListItems: ListitemProps[] = [
         </ListItemIcon>
         <ListItemText primary="Nova Vaga" />
       </ListItemButton>
+  },
+  {
+    name: 'Novo Curso',
+    icon: <SchoolIcon />,
+    link: '/cursos/form',
+    component:
+      <ListItemButton>
+        <ListItemIcon>
+          <SchoolIcon />
+        </ListItemIcon>
+        <ListItemText primary="Novo Curso" />
+      </ListItemButton>
   }
 ];
