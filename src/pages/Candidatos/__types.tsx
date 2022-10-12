@@ -1,19 +1,3 @@
-import { Dayjs } from 'dayjs';
-
-export interface VagasProps {
-    id: string;
-    image: string;
-    title: string;
-    short_description: string;
-    description: string;
-    salary: string;
-    location: string;
-    type: string;
-    level: string;
-    expire_date: string;
-    loading: boolean;
-}
-
 export interface Vagas {
     id: number;
     image: string;
@@ -36,4 +20,25 @@ export interface Vagas {
     group_date: string | undefined;
     first_interview_date: string | undefined;
     final_interview_date: string | undefined;
+}
+
+export interface Candidatos {
+    id: number;
+    name: string;
+    email: string;
+    surname: string;
+    nome_social: string;
+    cpf: string;
+    telefone: string;
+    data_nascimento: string;
+}
+
+export interface Candidato {
+    name: string;
+    email: string;
+    surname: string;
+    nome_social: string;
+    cpf: string;
+    telefone: string;
+    data_nascimento: string;
 }
