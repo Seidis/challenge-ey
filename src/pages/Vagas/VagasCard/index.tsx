@@ -19,7 +19,7 @@ export default function VagasCard({ id, image, title, short_description, descrip
                 )
                 :
                 (
-                    <Card sx={{ maxWidth: 345 }}>
+                    <Card sx={{ maxWidth: 345, height: 300 }}>
                         <CardActionArea
                             onClick={() => navigate('/vagas/' + id)}
                         >
@@ -35,9 +35,7 @@ export default function VagasCard({ id, image, title, short_description, descrip
                                     justifyContent='space-between'
                                     alignItems='center'
                                     sx={{
-                                        marginTop: '10px',
-                                        marginBottom: '10px',
-                                        // px: '20%'
+                                        marginTop: 4
                                     }}
                                     spacing={1}
                                 >
@@ -52,7 +50,7 @@ export default function VagasCard({ id, image, title, short_description, descrip
                                     />
                                 </Stack>
                                 <Typography variant="body1" color="text" align="center" sx={{
-                                    marginTop: 2,
+                                    marginTop: 4
                                 }}>
                                     Clique para mais informações
                                 </Typography>

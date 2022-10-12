@@ -21,7 +21,29 @@ export const types = [
     'Gestão'
 ];
 
+export const types2 = [
+    'Backend',
+    'Frontend',
+    'Fullstack',
+    'Mobile',
+    'DevOps',
+    'Designer',
+    'QA',
+    'Dados',
+    'Gestão',
+    'Todos'
+];
+
 export const levels = [
+    'Júnior',
+    'Pleno',
+    'Sênior',
+    'Estágio',
+    'Trainee',
+    'Freelancer',
+    'Aprendiz'
+];
+export const levels2 = [
     'Júnior',
     'Pleno',
     'Sênior',

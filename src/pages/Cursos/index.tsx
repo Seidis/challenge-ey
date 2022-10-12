@@ -6,7 +6,7 @@ import Title from "components/Title";
 import { Cursos as CursosProps } from "./__types";
 import { types2 as types } from './__options';
 
-import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Chip, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Chip, Grid, Stack, Typography } from "@mui/material";
 import CardCursos from "./CardCursos";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -99,40 +99,66 @@ export default function Cursos() {
 						</Typography>
 					</AccordionSummary>
 					<AccordionDetails>
-						<Stack
+						<Grid
+							container
 							direction="row"
 							justifyContent="space-between"
 							alignItems="center"
-							width="100%"
+							spacing={2}
 						>
-							{
-								types.map((type) => (
-									<Chip
-										key={type}
-										label={type}
-										onClick={() => handleCursosFiltrados(type)}
-										color={selected === type ? 'primary' : 'default'}
-										sx={{
-											cursor: 'pointer',
-										}}
-									/>
-								))
-							}
-						</Stack>
+							<Grid item xs={12} sm={1} md={1} lg={1}>
+								<Typography
+									variant="h6"
+								>
+									Área:
+								</Typography>
+							</Grid>
+							<Grid item xs={12} sm={11} md={11} lg={11}>
+								<Stack
+									direction="row"
+									justifyContent="space-between"
+									alignItems="center"
+									width="100%"
+								>
+									{
+										types.map((type) => (
+											<Chip
+												key={type}
+												label={type}
+												onClick={() => handleCursosFiltrados(type)}
+												color={selected === type ? 'primary' : 'default'}
+												sx={{
+													cursor: 'pointer',
+												}}
+											/>
+										))
+									}
+								</Stack>
+							</Grid>
+						</Grid>
 					</AccordionDetails>
 				</Accordion>
 			</Box>
 			{
-				cursosFiltrados.map((curso) => (
-					<CardCursos
-						key={curso.id}
-						id={curso.id}
-						title={curso.title}
-						description={curso.description}
-						image={curso.image}
-						tipo={curso.tipo}
-					/>
-				))
+				cursosFiltrados.length > 0 ? (
+					cursosFiltrados.map((curso) => (
+						<CardCursos
+							key={curso.id}
+							id={curso.id}
+							title={curso.title}
+							description={curso.description}
+							image={curso.image}
+							tipo={curso.tipo}
+						/>
+					))
+				) : (
+					<Typography
+						variant="h6"
+						align="center"
+					>
+						Nenhum curso encontrado :(
+					</Typography>
+				)
 			}
 		</Box>
 	);

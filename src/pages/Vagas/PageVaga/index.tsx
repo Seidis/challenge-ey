@@ -57,13 +57,15 @@ export default function PageVaga() {
     }
 
     function handleCandidatar() {
-        Api.post('/candidaturas', {
-            user_id: user.id,
-            vaga_id: vaga.id,
+        Api.post('/candidatura', {
+            candidate_id: user.id,
+            job_id: vaga.id,
         }).then((response) => {
             console.log(response);
+            navigate('/dashboard');
         }).catch((error) => {
             console.log(error);
+            navigate('/vagas');
         });
     }
 
@@ -171,7 +173,7 @@ export default function PageVaga() {
                         <Button
                             variant="outlined"
                             startIcon={<IoRocketSharp />}
-                            onClick={() => window.history.back()}
+                            onClick={() => handleCandidatar()}
                             color='success'
                         >
                             Quero me candidatar

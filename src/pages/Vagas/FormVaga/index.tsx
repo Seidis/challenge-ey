@@ -12,7 +12,7 @@ import { Autocomplete, Backdrop, Box, Button, CircularProgress, Divider, Grid, T
 import Title from "components/Title";
 import { Stack } from "@mui/system";
 
-import { types, levels, state, cities, processo } from './__options';
+import { types, levels, state, cities, processo } from '../__options';
 
 
 export default function FormVaga() {
@@ -62,11 +62,6 @@ export default function FormVaga() {
     function formatDate(date: Dayjs | null) {
         return date?.format('YYYY-MM-DD');
     }
-    // useEffect(() => {
-    //     setVaga({
-    //         ...vaga, expire_date: date?.format('YYYY-MM-DD')
-    //     });
-    // }, []);
 
     useEffect(() => {
         setVaga({
@@ -102,16 +97,6 @@ export default function FormVaga() {
         setExpire_date(req.expire_date ? dayjs(req.expire_date) : null);
     }
 
-    async function getLastVaga() {
-        const [allVagas, setAllVagas] = useState<Vagas[]>([]);
-        const req = await Api.get('/vagas').then((response) => {
-            setAllVagas(response.data);
-            return response.data;
-        }).catch((erro) => {
-            console.log(erro);
-        });
-        return Number(req[req.length - 1].id);
-    }
 
     async function handleSubmit() {
         setLoading(true);
@@ -442,14 +427,14 @@ export default function FormVaga() {
                         >
                             <Autocomplete
                                 disablePortal
-                                id="Entrevista Final"
+                                id="primeira entrevista"
                                 options={processo}
                                 value={vaga.first_interview ? processo[0] : processo[1]}
                                 getOptionLabel={(option) => option.label}
                                 onChange={(e, newValue) => {
                                     setVaga({ ...vaga, first_interview: newValue?.value });
                                 }}
-                                renderInput={(params) => <TextField {...params} label="Entrevista Final" />}
+                                renderInput={(params) => <TextField {...params} label="Entrevista Inicial" />}
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
