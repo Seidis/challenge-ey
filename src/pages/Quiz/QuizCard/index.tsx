@@ -1,9 +1,9 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import * as image2 from "assets/quiz/Linux.png";
 
-
-export default function CardQuiz({ category, difficulty }: { category: string, difficulty: string }) {
+export default function CardQuiz({ image, category, difficulty }: { image: string | undefined, category: string, difficulty: string }) {
     const navigate = useNavigate();
 
 
@@ -18,7 +18,7 @@ export default function CardQuiz({ category, difficulty }: { category: string, d
                     sx={{
                         borderRadius: 5,
                         boxShadow: 2,
-                        height: 400
+                        height: 300
                     }}
                 >
                     <Grid
@@ -39,13 +39,14 @@ export default function CardQuiz({ category, difficulty }: { category: string, d
                                     }}
                                 >
                                     <img
-                                        src="https://source.unsplash.com/random"
-                                        alt="Imagem do candidato"
+                                        src={image}
+                                        alt="Imagem da categoria"
                                         style={{
                                             width: '100%',
                                             height: '100%',
                                             objectFit: 'cover',
-                                            borderRadius: '100%'
+                                            borderRadius: '100%',
+                                            boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.75)'
                                         }}
                                     />
                                 </Box>
@@ -81,7 +82,6 @@ export default function CardQuiz({ category, difficulty }: { category: string, d
                     </Grid>
                 </Card>
             </CardActionArea>
-            <script src="https://www.socialintents.com/api/socialintents.1.3.js#2c9fab3583b596a00183cd58cb2d11a5" async={true}></script>
         </>
     );
 }

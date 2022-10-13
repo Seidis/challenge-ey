@@ -13,6 +13,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import IconChip from 'components/IconChip/IconChip';
+import KommunicateChat from './chatbot';
 
 const drawerWidth = 240;
 
@@ -27,7 +28,7 @@ function DefaultPage() {
   const user = JSON.parse(window.localStorage?.getItem('id') || '{}');
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', overflowY: 'hidden' }}>
       <CssBaseline />
       <AppBar position="absolute" open={open}>
         <Toolbar className={styles.header_toolbar}>
@@ -131,7 +132,12 @@ function DefaultPage() {
 }
 
 export default function Default() {
-  return <DefaultPage />;
+  return (
+    <>
+      <DefaultPage />;
+      <KommunicateChat />
+    </>
+  );
 }
 
 

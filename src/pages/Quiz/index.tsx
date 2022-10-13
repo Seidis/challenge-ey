@@ -17,6 +17,10 @@ export default function Quiz() {
                 justifyContent="center"
                 alignItems="center"
                 spacing={2}
+                sx={{
+                    marginTop: 2,
+                    marginBottom: 2
+                }}
             >
                 {
                     list.map((item, index) => (
@@ -31,6 +35,7 @@ export default function Quiz() {
                             <CardQuiz
                                 category={item.category}
                                 difficulty={item.difficulty}
+                                image={item.image}
                             />
                         </Grid>
                     ))
@@ -41,12 +46,43 @@ export default function Quiz() {
 }
 
 const list = [{
+    "image": "quiz/Linux.png",
     "category": "Linux",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "badge": 1
 }, {
+    "image": "quiz/Linux.png",
     "category": "Linux",
-    "difficulty": "Medium"
+    "difficulty": "Medium",
+    "badge": 2
 }, {
+    "image": "quiz/Linux.png",
     "category": "Linux",
-    "difficulty": "Hard"
+    "difficulty": "Hard",
+    "badge": 3
+}, {
+    "image": "quiz/bash.png",
+    "category": "Bash",
+    "difficulty": "Easy",
+    "badge": 4
+}, {
+    "image": "quiz/bash.png",
+    "category": "Bash",
+    "difficulty": "Medium",
+    "badge": 5
+}, {
+    "image": "quiz/php.png",
+    "category": "Php",
+    "difficulty": "Easy",
+    "badge": 6
+}, {
+    "image": "quiz/php.png",
+    "category": "Php",
+    "difficulty": "Medium",
+    "badge": 7
+}, {
+    "image": "quiz/php.png",
+    "category": "Php",
+    "difficulty": "Hard",
+    "badge": 8
 }];
