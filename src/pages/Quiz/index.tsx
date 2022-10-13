@@ -31,6 +31,7 @@ export default function Quiz() {
                             <CardQuiz
                                 category={item.category}
                                 difficulty={item.difficulty}
+                                image={item.image}
                             />
                         </Grid>
                     ))
@@ -41,12 +42,36 @@ export default function Quiz() {
 }
 
 const list = [{
+    "image": "quiz/Linux.png",
     "category": "Linux",
-    "difficulty": "Easy"
+    "difficulty": "Easy",
+    "badge": 1
 }, {
     "category": "Linux",
-    "difficulty": "Medium"
+    "difficulty": "Medium",
+    "badge": 2
 }, {
     "category": "Linux",
-    "difficulty": "Hard"
+    "difficulty": "Hard",
+    "badge": 3
+}, {
+    "category": "Bash",
+    "difficulty": "Easy",
+    "badge": 4
+}, {
+    "category": "Bash",
+    "difficulty": "Medium",
+    "badge": 5
+}, {
+    "category": "Php",
+    "difficulty": "Easy",
+    "badge": 6
+}, {
+    "category": "Php",
+    "difficulty": "Medium",
+    "badge": 7
+}, {
+    "category": "Php",
+    "difficulty": "Hard",
+    "badge": 8
 }];

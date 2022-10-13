@@ -46,9 +46,9 @@ export default function Home() {
             const payload = { id: response.id, token: response.access_token, role: response.role };
 
             setUser(payload);
-            await setUserLocalStorage(payload);
+            setUserLocalStorage(payload);
             setLoading(false);
-            navigate('/dashboard', { replace: true });
+            navigate('/dashboard');
         } catch (error) {
             setError(true);
             setLoading(false);
