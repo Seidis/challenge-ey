@@ -79,6 +79,7 @@ export default function PageCandidatos() {
                                 xs={12} sm={6} md={4} lg={4} xl={3}
                             >
                                 <CardCandidato
+                                    id={candidato.id}
                                     name={candidato.name}
                                     surname={candidato.surname}
                                     nome_social={candidato.nome_social}

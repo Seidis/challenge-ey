@@ -28,7 +28,7 @@ function DefaultPage() {
   const user = JSON.parse(window.localStorage?.getItem('id') || '{}');
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', overflowY: 'hidden' }}>
       <CssBaseline />
       <AppBar position="absolute" open={open}>
         <Toolbar className={styles.header_toolbar}>

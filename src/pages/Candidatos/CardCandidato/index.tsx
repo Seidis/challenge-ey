@@ -1,13 +1,17 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
-import { Candidato } from "../__types";
+import { Candidatos } from "../__types";
 
 
-export default function CardCandidato({ name, email, surname, nome_social, cpf, telefone, data_nascimento }: Candidato) {
+export default function CardCandidato({ id, name, email, surname, nome_social, cpf, telefone, data_nascimento }: Candidatos) {
+    const navigate = useNavigate();
     return (
         <>
-            <CardActionArea>
+            <CardActionArea
+                onClick={() => navigate('/profile/' + id)}
+            >
                 <Card
                     sx={{
                         borderRadius: 5,

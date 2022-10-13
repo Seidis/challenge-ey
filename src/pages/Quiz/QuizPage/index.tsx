@@ -2,7 +2,7 @@ import { Backdrop, Box, Button, Grid, Modal, Stack, Typography } from "@mui/mate
 import axios from "axios";
 import Title from "components/Title";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { FaPlay } from "react-icons/fa";
 import { TbArrowBack } from "react-icons/tb";
@@ -20,6 +20,8 @@ export default function QuizPage() {
     const [correct, setCorrect] = useState(0);
     const [openModal, setOpenModal] = useState(false);
 
+    const navigate = useNavigate();
+
     async function getQuiz() {
         setLoading(true);
         await axios.get(process.env.REACT_APP_QUIZ_URL + '&category=' + category + '&difficulty=' + difficulty + '&limit=1').then(async (response) => {
@@ -30,6 +32,14 @@ export default function QuizPage() {
             setLoading(false);
             console.log(response.data);
         });
+    }
+
+    function restartQuiz() {
+        setIndex(0);
+        setCorrect(0);
+        setStart(false);
+        setOpenModal(false);
+        getQuiz();
     }
 
     function checkAnswer(answer: any) {
@@ -337,14 +347,18 @@ export default function QuizPage() {
                                     alignItems="center"
                                     spacing={2}
                                 >
-                                    <Button>
+                                    <Button
+                                        onClick={() => navigate('/profile')}
+                                    >
                                         <Typography
                                             variant="h5"
                                         >
                                             Ir para o perfil para ver a insígnia
                                         </Typography>
                                     </Button>
-                                    <Button>
+                                    <Button
+                                        onClick={() => navigate('/quiz')}
+                                    >
                                         <Typography
                                             variant="h5"
                                         >
@@ -356,7 +370,6 @@ export default function QuizPage() {
                         ) : (
                             <>
                                 <Typography
-
                                     variant="h5"
                                     sx={{
                                         textAlign: 'center',
@@ -371,14 +384,18 @@ export default function QuizPage() {
                                     alignItems="center"
                                     spacing={2}
                                 >
-                                    <Button>
+                                    <Button
+                                        onClick={() => restartQuiz()}
+                                    >
                                         <Typography
                                             variant="h5"
                                         >
                                             Tentar novamente
                                         </Typography>
                                     </Button>
-                                    <Button>
+                                    <Button
+                                        onClick={() => navigate('/cursos')}
+                                    >
                                         <Typography
                                             variant="h5"
                                         >

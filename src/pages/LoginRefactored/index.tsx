@@ -48,7 +48,7 @@ export default function Home() {
             setUser(payload);
             setUserLocalStorage(payload);
             setLoading(false);
-            navigate('/dashboard');
+            navigate('/quiz');
         } catch (error) {
             setError(true);
             setLoading(false);

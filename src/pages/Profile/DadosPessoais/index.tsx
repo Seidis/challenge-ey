@@ -6,17 +6,18 @@ import Title from "components/Title";
 
 import { getUserLocalStorage } from "context/AuthProvider/utils";
 import { Stack } from "@mui/system";
+import { useParams } from "react-router-dom";
 
 export default function DadosPessoais() {
 
     const user = getUserLocalStorage();
     useEffect(() => {
-        getUserData();
+        getUserData(user.id);
     }, []);
     const [cpfDisabled, setCpfDisabled] = useState(false);
 
-    async function getUserData() {
-        const request = await Api.get('/users/all/' + user.id).then((response) => {
+    async function getUserData(id: string) {
+        const request = await Api.get('/users/all/' + id).then((response) => {
             return response.data;
         }).catch((error) => {
             console.log(error);
