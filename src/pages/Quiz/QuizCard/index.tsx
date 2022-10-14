@@ -1,7 +1,6 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-import * as image2 from "assets/quiz/Linux.png";
 
 export default function CardQuiz({ image, category, difficulty }: { image: string | undefined, category: string, difficulty: string }) {
     const navigate = useNavigate();

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Candidatos } from "../__types";
 
 
-export default function CardCandidato({ id, name, email, surname, nome_social, cpf, telefone, data_nascimento }: Candidatos) {
+export default function CardCandidato({ id, name, email, surname, nome_social }: Candidatos) {
     const navigate = useNavigate();
     return (
         <>

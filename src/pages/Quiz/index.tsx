@@ -1,7 +1,5 @@
 import Title from "components/Title";
-import axios from "axios";
-import { useState } from "react";
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import CardQuiz from "./QuizCard";
 
 export default function Quiz() {

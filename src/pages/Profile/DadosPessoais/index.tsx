@@ -6,7 +6,6 @@ import Title from "components/Title";
 
 import { getUserLocalStorage } from "context/AuthProvider/utils";
 import { Stack } from "@mui/system";
-import { useParams } from "react-router-dom";
 
 export default function DadosPessoais() {
 

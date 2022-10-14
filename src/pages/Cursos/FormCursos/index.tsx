@@ -6,7 +6,13 @@ import Title from "components/Title";
 import { Api } from "api/api";
 import { types } from '../__options';
 
+import { toast } from 'react-toastify';
+
 export default function FormCurso() {
+
+    // eslint-disable-next-line
+    const notify = (message: string, params: any) => toast(message, params);
+
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [curso, setCurso] = useState<Cursos>({
@@ -23,10 +29,12 @@ export default function FormCurso() {
             navigate('/cursos');
             console.log(response);
             setLoading(false);
+            notify('Curso cadastrado com sucesso!', { type: 'success' });
         }).catch((error) => {
             console.log(error);
         }).finally(() => {
             setLoading(false);
+            notify('Houve um erro, tente novamente mais tarde!', { type: 'error' });
         });
     }
 
