@@ -16,6 +16,7 @@ import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from 'context/
 import { IUser } from 'context/AuthProvider/types';
 
 import { ColorButton } from 'components/ColorButton';
+
 export default function Home() {
 
     // Navigation
@@ -48,7 +49,9 @@ export default function Home() {
             setUser(payload);
             setUserLocalStorage(payload);
             setLoading(false);
-            navigate('/quiz');
+            if (response && !loading) {
+                navigate('/dashboard');
+            }
         } catch (error) {
             setError(true);
             setLoading(false);

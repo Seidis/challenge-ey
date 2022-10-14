@@ -23,7 +23,7 @@ export default function PageCandidatos() {
     }
 
     async function getCandidates() {
-        const candidates = await Api.get('/candidatura/candidates/' + vagaSelected?.id).then((response) => {
+        await Api.get('/candidatura/candidates/' + vagaSelected?.id).then((response) => {
             setCandidatos(response.data);
             console.log(response.data);
             return response.data;

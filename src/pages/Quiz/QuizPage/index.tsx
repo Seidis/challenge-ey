@@ -11,6 +11,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 export default function QuizPage() {
 
     const { category, difficulty } = useParams();
+
+    //eslint-disable-next-line
     const [req, setReq] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
 
@@ -42,6 +44,7 @@ export default function QuizPage() {
         getQuiz();
     }
 
+    // eslint-disable-next-line
     function checkAnswer(answer: any) {
         if (index < 9) {
             if (answer === req[0].correct_answer) {

@@ -34,6 +34,7 @@ export default function AppRouter() {
 
 	return (
 		<>
+			{console.log(user)}
 			<BrowserRouter>
 				<Routes>
 					<Route path='/register' element={<Register />} />

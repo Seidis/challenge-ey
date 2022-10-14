@@ -12,13 +12,20 @@ import { Api } from 'api/api';
 import { validateEmail } from 'utils/__utils';
 import Termo from './Termo';
 
+import { toast } from 'react-toastify';
+
 export default function Register() {
     const navigate = useNavigate();
+
+    //eslint-disable-next-line
+    const notify = (message: string, params: any) => toast(message, params);
 
     const [acceptTerms, setAcceptTerms] = useState(false);
 
     const [openSnackbar, setOpenSnackbar] = useState(false);
+    //eslint-disable-next-line
     const [snackbarType, setSnackbarType] = useState<'success' | 'error'>('error');
+    //eslint-disable-next-line
     const [snackbarTitle, setSnackbarTitle] = useState('Erro');
     const handleCloseSnackbar = (event: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
@@ -95,10 +102,7 @@ export default function Register() {
             role
         });
 
-        setSnackbarType('success');
-        setSnackbarTitle('Sucesso');
-        setMessage('Cadastro realizado com sucesso!');
-        setOpenSnackbar(true);
+        notify('Cadastro realizado com sucesso!', { type: 'success' });
         setLoading(false);
         response.status === 200 && navigate('/login');
     }

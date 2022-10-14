@@ -33,27 +33,29 @@ export const mainListItems = [
         <ListItemText primary="Dashboard" />
       </ListItemButton>
     </>
-  }, {
-    name: 'Missões',
-    icon: <IoGameController />,
-    link: '/missions',
-    component:
-      <ListItemButton>
-        <ListItemIcon>
-          <IoGameController
-            size={25}
-          />
-        </ListItemIcon>
-        <ListItemText primary="Missões" />
-      </ListItemButton>
-  }, {
+  },
+  //  {
+  //   name: 'Missões',
+  //   icon: <IoGameController />,
+  //   link: '/missions',
+  //   component:
+  //     <ListItemButton>
+  //       <ListItemIcon>
+  //         <IoGameController
+  //           size={25}
+  //         />
+  //       </ListItemIcon>
+  //       <ListItemText primary="Missões" />
+  //     </ListItemButton>
+  // }, 
+  {
     name: 'Quiz',
-    icon: <RiQuestionnaireFill />,
+    icon: <IoGameController />,
     link: '/quiz',
     component:
       <ListItemButton>
         <ListItemIcon>
-          <RiQuestionnaireFill
+          <IoGameController
             size={24}
           />
         </ListItemIcon>
